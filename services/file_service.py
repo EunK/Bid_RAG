@@ -36,6 +36,14 @@ def list_files(store_name: str, scope: str = None) -> List[Dict[str, str]]:
     """Store 내 문서 목록 조회 및 필터링"""
     rows = []
     # SDK 구조에 맞게 documents.list 호출
+    stores = client.file_search_stores.list()
+    cnt = len(stores)
+    print(f"count: {cnt}")
+    for s in stores:
+        print(f"Name: {s.name}")  # 이 출력값을 복사해서 .env의 STORE_NAME에 넣으세요.
+        print(f"Display Name: {s.display_name}")
+        print("-" * 30)
+
     pager = client.file_search_stores.documents.list(parent=store_name)
     
     for doc in pager:
