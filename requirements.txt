@@ -13,3 +13,4 @@ pandas>=2.0.0
 uvicorn
 fastapi
 python-multipart
+PyMuPDF
